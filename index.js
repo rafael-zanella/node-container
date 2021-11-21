@@ -1,19 +1,12 @@
-// run `node index.js` in the terminal
+const express = require("express");
 
-console.log(`Hello Node.js v${process.versions.node}!`);
+const app = express();
 
-const http = require('http');
-
-const hostname = '127.0.0.1';
-
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
+app.get("/", (req, res) => {
+  console.log('')
+  res.send("Hi Docker!!!");
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server is running at http://${hostname}:${port}`);
+app.listen(3000, () => {
+  console.log('server running');
 });
